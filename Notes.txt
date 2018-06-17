@@ -1,0 +1,6 @@
+Responsive Design Principles:
+
+1. Fluid grids and layouts: uses % rather than px.
+2. Flexible / Responsive images.
+3. Media Queries: To change styles on certain viewport widths (breakpoints).
+

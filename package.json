@@ -1,0 +1,20 @@
+{
+    "name": "natours",
+    "version": "1.0.0",
+    "description": "Landing page for Natours",
+    "main": "index.js",
+    "scripts": {
+        "watch:sass": "node-sass sass/main.scss css/style.css -w",
+        "devserver": "live-server",
+        "start": "npm-run-all --parallel devserver watch:sass",
+        "compile:sass": "node-sass sass/main.scss css/style.comp.css",
+        "concat:css": "concat -o css/style.concat.css css/icon-font.css css/style.comp.css"
+    },
+    "author": "Omry",
+    "license": "ISC",
+    "devDependencies": {
+        "node-sass": "^4.7.2",
+        "postcss-cli": "^5.0.0"
+    },
+    "dependencies": {}
+}

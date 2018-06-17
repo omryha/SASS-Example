@@ -1,0 +1,41 @@
+.header {
+    height: 95vh;
+    /*the height is 95% of the Viewport Height (the user's visible area of a web page)*/
+    background-image: linear-gradient( to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url(../img/hero-small.jpg);
+    background-size: cover;
+    /*Makes the picture fit the container element*/
+    background-position: top;
+    /*Sticks the picture to the top of the container*/
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    /*Define a polygon shaped visible area of the picture*/
+    //Resolution Media Query
+    @media only screen and (min-resolution: 192dpi) and (min-width: 600px) {
+        background-image: linear-gradient( to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url(../img/hero.jpg);
+    }
+    @media only screen and (min-width: 2000px) {
+        background-image: linear-gradient( to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url(../img/hero.jpg);
+    }
+    @include respond(phone) {
+        clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    }
+    &__logo-box {
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+    &__logo {
+        height: 3.5rem;
+    }
+    &__text-box {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        /*This shifts the box to the center in relation to the element itself, after moving the box to the true center of the parent element*/
+        text-align: center;
+        /*Will be used to center the "Discover" button*/
+    }
+}

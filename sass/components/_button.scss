@@ -1,0 +1,105 @@
+/*:link is pseudo class - it means the button is used as a link*/
+
+.btn {
+    &,
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        /*TOP-BOTTOM LEFT-RIGHT, 4 Values for Top, Right, Bottom, Left*/
+        display: inline-block;
+        /*So we can use padding and height, width*/
+        border-radius: 10rem;
+        /*Round corners*/
+        transition: all 0.2s;
+        /*All means that all properties of the element will be animated*/
+        position: relative;
+        font-size: $default-font-size;
+        border: none;
+        cursor: pointer;
+    }
+    &:hover {
+        transform: translateY(-0.3rem);
+        /*Negative values for moving up*/
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+        /*Offset-x, offset-y, blur, color*/
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            /*Scale increases the element, (multiple by)*/
+            opacity: 0;
+            /*This button on hover will scale up and be invisible*/
+        }
+    }
+    &:active,
+    &:focus {
+        outline: none;
+        /*Active=Click*/
+        transform: translateY(-0.1rem);
+        box-shadow: 0 5rem 1rem rgba($color-black, 0.2);
+        /*Smaller values to make it look closer to the page when pressed*/
+    }
+    &::after {
+        /*The after pseudo element will be behind the original element and will appear*/
+        content: "";
+        /*Required field*/
+        display: inline-block;
+        /*Required field, should be like the original element's display*/
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        /*Behind the original button*/
+        transition: all 0.4s;
+    }
+    &--white {
+        background-color: $color-white;
+        color: $color-grey-dark;
+        &::after {
+            background-color: $color-white;
+        }
+    }
+    &--green {
+        background-color: $color-primary;
+        color: $color-white;
+        &::after {
+            background-color: $color-primary;
+        }
+    }
+    &--animated {
+        animation: moveInBottom 0.5s ease-out 0.75s;
+        /*0.75s delay*/
+        animation-fill-mode: backwards;
+        /*Auto apply the 0% opacity on the element BEFORE the animation starts, so the button won't appear*/
+        padding: 3rem;
+        /**Defines how the width and height of an element are calculated: should they include padding and borders, or not.
+        Added padding / margins will not be part of the width & height of the element*/
+        box-sizing: border-box;
+    }
+}
+
+.btn-text {
+    &:link,
+    &:visited {
+        font-size: $default-font-size;
+        color: $color-primary;
+        display: inline-block;
+        text-decoration: none;
+        border-bottom: 1px solid $color-primary;
+        padding: 3px;
+        transition: all .2;
+    }
+    &:hover {
+        background: $color-primary;
+        color: $color-white;
+        box-shadow: 0 1rem 2rem rgba($color-black, .15);
+        transform: translateY(-2px);
+    }
+    &:active {
+        box-shadow: 0.5rem 1rem rgba($color-black, .15);
+        transform: translateY(0);
+    }
+}
