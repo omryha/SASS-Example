@@ -13,7 +13,7 @@
     "author": "Omry",
     "license": "ISC",
     "devDependencies": {
-        "node-sass": "^4.7.2",
+        "node-sass": "^4.13.1",
         "postcss-cli": "^5.0.0"
     },
     "dependencies": {}
